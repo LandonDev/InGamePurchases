@@ -15,7 +15,7 @@ public class CmdEditShop implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
         if (sender instanceof Player && sender.isOp()) {
             Player player = (Player)sender;
-            if(args.length > 2 && args[0].equalsIgnoreCase("additem") && NumberUtils.isNumber(args[1])) {
+            if(args.length > 1 && args[0].equalsIgnoreCase("additem") && NumberUtils.isNumber(args[1])) {
                 if(player.getItemInHand() != null && player.getItemInHand().getType() != Material.AIR) {
                     ItemStack item = player.getItemInHand().clone();
                     ShopManager.get().createShopItem(item, Integer.parseInt(args[1]));
@@ -25,7 +25,7 @@ public class CmdEditShop implements CommandExecutor {
                 }
                 return false;
             }
-            if(args.length > 2 && args[0].equalsIgnoreCase("removeitem") && NumberUtils.isNumber(args[1])) {
+            if(args.length > 1 && args[0].equalsIgnoreCase("removeitem") && NumberUtils.isNumber(args[1])) {
                 int idToFind = Integer.parseInt(args[1]);
                 ShopManager.get().getShopItemFromID(idToFind, item -> {
                    if(item != null) {
