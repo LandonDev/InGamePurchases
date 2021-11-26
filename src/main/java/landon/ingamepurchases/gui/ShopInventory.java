@@ -58,6 +58,7 @@ public class ShopInventory implements InventoryProvider {
                         player.closeInventory();
                         return;
                     }
+                    player.closeInventory();
                     ShopManager.get().getConfirmItemCache().put(player.getUniqueId(), shopItem);
                     ItemConfirmMenu.build().open(player);
                     player.playSound(player.getLocation(), Sound.ORB_PICKUP, 1.0F, 1.0F);

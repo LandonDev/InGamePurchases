@@ -26,7 +26,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class ItemConfirmMenu implements InventoryProvider {
     public static SmartInventory build() {
         return SmartInventory.builder()
-                .provider(new ShopInventory())
+                .provider(new ItemConfirmMenu())
                 .title("Confirm Purchase")
                 .id("confirmItem")
                 .size(1, 9)
