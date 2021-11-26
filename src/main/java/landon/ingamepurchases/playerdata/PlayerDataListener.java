@@ -13,12 +13,4 @@ public class PlayerDataListener implements Listener {
     public void updatePlayerUsernameEvent(PlayerLoginEvent e) {
         PlayerDataManager.get().updateUsername(e.getPlayer());
     }
-
-    @EventHandler(ignoreCancelled = true, priority = EventPriority.HIGHEST)
-    public void buyCommand(PlayerCommandPreprocessEvent e) {
-        if(StringUtils.startsWithIgnoreCase(e.getMessage(), "/buy")) {
-            e.setCancelled(true);
-            ShopInventory.build().open(e.getPlayer());
-        }
-    }
 }
