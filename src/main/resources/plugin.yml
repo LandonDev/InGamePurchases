@@ -1,3 +1,14 @@
 name: InGamePurchases
 version: ${project.version}
 main: landon.ingamepurchases.InGamePurchases
+commands:
+  coins:
+    description: None
+    aliases:
+      - coin
+      - ecoin
+      - ecoins
+  editshop:
+    description: None
+  acoins:
+    description: None

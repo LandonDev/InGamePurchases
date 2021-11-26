@@ -1,0 +1,9 @@
+mongodb:
+  use-uri: true
+  debug: false
+  uri: "mongodb://admin:aP@55word@172.18.0.1:27017/?authSource=admin"
+  login-details:
+    username:
+    password:
+    host:
+    port:
