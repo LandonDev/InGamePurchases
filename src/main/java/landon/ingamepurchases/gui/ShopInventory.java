@@ -36,9 +36,9 @@ public class ShopInventory implements InventoryProvider {
 
     @Override
     public void init(Player player, InventoryContents contents) {
-        player.playSound(player.getLocation(), Sound.CHEST_OPEN, 1.0F, 1.0F);
-        contents.fill(ClickableItem.empty(ItemBuilder.createItem(Material.STAINED_GLASS_PANE, "&cLoading...", 1, 14, "")));
+        player.playSound(player.getLocation(), Sound.BAT_TAKEOFF, 1.0F, 1.0F);
         ShopManager.get().loadShopItems(items -> {
+            player.playSound(player.getLocation(), Sound.LEVEL_UP, 1.0F, 1.0F);
             Pagination pagination = contents.pagination();
             ClickableItem[] clickableItems = new ClickableItem[items.size()];
             for(int i = 0; i < clickableItems.length; i++) {
@@ -58,7 +58,6 @@ public class ShopInventory implements InventoryProvider {
                         player.closeInventory();
                         return;
                     }
-                    player.closeInventory();
                     ShopManager.get().getConfirmItemCache().put(player.getUniqueId(), shopItem);
                     ItemConfirmMenu.build().open(player);
                     player.playSound(player.getLocation(), Sound.ORB_PICKUP, 1.0F, 1.0F);

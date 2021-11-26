@@ -95,7 +95,7 @@ public class ItemConfirmMenu implements InventoryProvider {
                 player.playSound(player.getLocation(), Sound.ORB_PICKUP, 1.0F, 1.0F);
                 toStart++;
             }
-        }.runTaskTimer(InGamePurchases.get(), 0L, ThreadLocalRandom.current().nextInt(5, 16));
+        }.runTaskTimer(InGamePurchases.get(), 0L, ThreadLocalRandom.current().nextInt(1, 6));
     }
 
     public void playResult(Player player, InventoryContents contents, boolean success, ShopItem item) {
@@ -108,12 +108,12 @@ public class ItemConfirmMenu implements InventoryProvider {
             } else {
                 player.getInventory().addItem(item.getItem().clone());
             }
-            Bukkit.broadcastMessage("");
-            Bukkit.broadcastMessage("&6&l(!) &6&n" + player.getName() + "&6 has purchased " + item.getItem().getItemMeta().getDisplayName() + "&r &6for &l&n" + item.getPrice() + "&6 coins!");
-            Bukkit.broadcastMessage("&7To support our server, type /buy. To purchase coins use /coins buy.");
-            Bukkit.broadcastMessage("");
+            Bukkit.broadcastMessage(c.c(""));
+            Bukkit.broadcastMessage(c.c("&6&l(!) &6&n" + player.getName() + "&6 has purchased " + item.getItem().getItemMeta().getDisplayName() + "&r &6for &l&n" + item.getPrice() + "&6 coins!"));
+            Bukkit.broadcastMessage(c.c("&7To support our server, type /buy. To purchase coins use /coins buy."));
+            Bukkit.broadcastMessage(c.c(""));
         } else {
-            contents.fill(ClickableItem.empty(ItemBuilder.createItem(Material.STAINED_GLASS_PANE, "&c&lFAILED: &cInsufficient Funds!", 1, 14)));
+            contents.fill(ClickableItem.empty(ItemBuilder.createItem(Material.STAINED_GLASS_PANE, "&c&lFAILED:&r &cInsufficient Funds!", 1, 14)));
             player.sendMessage(c.c("&c&l(!) &cYou do not have enough coins to make this purchase!"));
             player.sendMessage(c.c("&7To check your balance or find out more information, type /coins."));
             player.playSound(player.getLocation(), Sound.NOTE_PLING, 1.0F, 1.0F);

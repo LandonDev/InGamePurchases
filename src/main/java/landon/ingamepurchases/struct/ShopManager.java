@@ -88,8 +88,8 @@ public class ShopManager {
                     continue;
                 } else {
                     id = potentialID;
+                    callback.accept(id);
                 }
-                callback.accept(id);
             }
         });
     }
