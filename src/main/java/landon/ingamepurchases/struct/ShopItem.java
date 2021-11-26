@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 @Getter
 @Setter
 public class ShopItem {
@@ -18,9 +20,7 @@ public class ShopItem {
         this.price = price;
         this.salePercent = 0.0D;
         this.putOnStore = System.currentTimeMillis();
-        ShopManager.get().assignRandomID(id -> {
-            this.id = id;
-        });
+        this.id = ThreadLocalRandom.current().nextInt(100000, 9999999);
     }
 
     public ShopItem(ItemStack item, int price, double salePercent, long putOnStore, int id) {

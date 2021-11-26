@@ -73,27 +73,6 @@ public class ShopManager {
         });
     }
 
-    public void assignRandomID(Consumer<Integer> callback) {
-        this.loadShopItems(items -> {
-            int id = 0;
-            while(id == 0) {
-                int potentialID = ThreadLocalRandom.current().nextInt(100000, 999999);
-                boolean matches = false;
-                for (ShopItem item : items) {
-                    if(item.getId() == potentialID) {
-                        matches = true;
-                    }
-                }
-                if(matches) {
-                    continue;
-                } else {
-                    id = potentialID;
-                    callback.accept(id);
-                }
-            }
-        });
-    }
-
     public void loadShopItems(Consumer<List<ShopItem>> callback) {
         Bukkit.getScheduler().runTaskAsynchronously(InGamePurchases.get(), () -> {
             List<ShopItem> itemsTo = new ArrayList<>();
