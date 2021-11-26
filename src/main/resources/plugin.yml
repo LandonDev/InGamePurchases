@@ -1,0 +1,3 @@
+name: InGamePurchases
+version: ${project.version}
+main: landon.ingamepurchases.InGamePurchases
